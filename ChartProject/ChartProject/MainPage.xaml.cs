@@ -19,26 +19,19 @@ namespace ChartProject
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            //Item additem = new Item
-            //{
-            //    daily = 5619,
-            //    mtd = 2900,
-            //    ytd = 67676,
-            //    name = "truck"
-            //};
-            //await App.Database.SaveItemAsync(additem);
+            
             List<Item> items = await App.Database.GetItemsAsync();
-            if (items.Count > 0)
+            for(int i=0;i<items.Count;i++)
             {
-                Item item = items[0];
-                Label nameLable = new Label { Text=item.name};
-                itemGrid.Children.Add(nameLable,0,1);
-                Label dailyLable = new Label { Text = item.daily.ToString() };       
-                itemGrid.Children.Add(dailyLable, 1, 1);
+                Item item = items[i];
+                Label nameLable = new Label { Text = item.name };
+                itemGrid.Children.Add(nameLable, 0, i+1);
+                Label dailyLable = new Label { Text = item.daily.ToString() };
+                itemGrid.Children.Add(dailyLable, 1, i + 1);
                 Label mtdLable = new Label { Text = item.mtd.ToString() };
-                itemGrid.Children.Add(mtdLable, 2, 1);
+                itemGrid.Children.Add(mtdLable, 2, i + 1);
                 Label ytdLable = new Label { Text = item.ytd.ToString() };
-                itemGrid.Children.Add(ytdLable, 3, 1);
+                itemGrid.Children.Add(ytdLable, 3, i + 1);
             }
 
 

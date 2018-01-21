@@ -14,7 +14,7 @@ namespace ChartProject
 		{
 			InitializeComponent();
 
-			MainPage = new ChartProject.MainPage();
+            MainPage = new NavigationPage(new ChartProject.AddItemPage());
          
         }
 

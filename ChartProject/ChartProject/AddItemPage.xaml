@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChartProject.AddItemPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Name"/>
+            <Entry x:Name="txtName"/>
+            <Label Text="Daily"/>
+            <Entry x:Name="txtDaily"/>
+            <Label Text="MTD"/>
+            <Entry x:Name="txtMtd"/>
+            <Label Text="YTD"/>
+            <Entry x:Name="txtYtd"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Add" Clicked="AddNewItem"/>
+                <Button Text="View Items" Clicked="ViewItems"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
