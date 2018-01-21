@@ -28,6 +28,11 @@ namespace ChartProject
             additem.mtd = Int32.Parse(txtMtd.Text);
             additem.ytd = Int32.Parse(txtYtd.Text);
             await App.Database.SaveItemAsync(additem);
+            txtName.Text = "";
+            txtDaily.Text = "";
+            txtMtd.Text = "";
+            txtYtd.Text = "";
+            lblName.IsVisible = true;
         }
         public async void ViewItems(object sender, EventArgs e)
         {

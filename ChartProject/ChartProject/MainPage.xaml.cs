@@ -27,7 +27,19 @@ namespace ChartProject
                 Label nameLable = new Label { Text = item.name };
                 itemGrid.Children.Add(nameLable, 0, i+1);
                 Label dailyLable = new Label { Text = item.daily.ToString() };
-                itemGrid.Children.Add(dailyLable, 1, i + 1);
+                if (i == 1)
+                {
+                    var layout = new StackLayout();
+                    var image = new Image { Source = "green_arrow.jpg" };
+                    layout.Children.Add(image);
+                    layout.Children.Add(dailyLable);
+                    itemGrid.Children.Add(layout, 1, i + 1);
+                }
+                else
+                {
+
+                    itemGrid.Children.Add(dailyLable, 1, i + 1);
+                }
                 Label mtdLable = new Label { Text = item.mtd.ToString() };
                 itemGrid.Children.Add(mtdLable, 2, i + 1);
                 Label ytdLable = new Label { Text = item.ytd.ToString() };

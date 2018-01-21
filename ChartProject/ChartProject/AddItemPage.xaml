@@ -16,6 +16,7 @@
                 <Button Text="Add" Clicked="AddNewItem"/>
                 <Button Text="View Items" Clicked="ViewItems"/>
             </StackLayout>
+            <Label x:Name="lblName" Text="Added Successfully" IsVisible="False"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
