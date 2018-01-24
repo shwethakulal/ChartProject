@@ -10,8 +10,8 @@ namespace ChartProject
         [PrimaryKey, AutoIncrement]
         public int ID { set; get; } 
         public string name { set; get; }
-        public int daily { set; get; }
-        public int mtd { set; get; }
-        public int ytd { set; get; }
+        public long daily { set; get; }
+        public long mtd { set; get; }
+        public long ytd { set; get; }
     }
 }

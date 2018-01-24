@@ -6,10 +6,10 @@
     
     <Grid x:Name="itemGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="85"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>

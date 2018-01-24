@@ -15,6 +15,7 @@
             <StackLayout Orientation="Horizontal">
                 <Button Text="Add" Clicked="AddNewItem"/>
                 <Button Text="View Items" Clicked="ViewItems"/>
+                <Button Text="View Album Data" Clicked="ViewAlbumData"/>
             </StackLayout>
             <Label x:Name="lblName" Text="Added Successfully" IsVisible="False"/>
         </StackLayout>
