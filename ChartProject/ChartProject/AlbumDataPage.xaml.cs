@@ -21,13 +21,15 @@ namespace ChartProject
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            albumGrid.RowDefinitions = new RowDefinitionCollection();
             var albumApi = RestService.For<IAlbumAPI>("http://jsonplaceholder.typicode.com");
             try
-            {
+            {              
                 List<Album> userId = await albumApi.GetAllAlbums();
                 for (int i = 0; i < userId.Count; i++)
                 {
                     Album album = userId[i];
+                    albumGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(50,GridUnitType.Absolute) });
                     Label userid = new Label { Text = album.userId.ToString() };
                     albumGrid.Children.Add(userid, 0, i + 1);
                     Label id = new Label { Text = album.id.ToString() };
@@ -40,8 +42,6 @@ namespace ChartProject
             {
                 Console.WriteLine(e.Message);
             }
-
-
 
         }
     }

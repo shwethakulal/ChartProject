@@ -2,21 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ChartProject.AlbumDataPage">
-   
-    <Grid x:Name="albumGrid">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-        </Grid.RowDefinitions>
-        <Label Text="userId" Grid.Row="0" Grid.Column="0" />
-        <Label Text="id" Grid.Row="0" Grid.Column="1" />
-        <Label Text="title" Grid.Row="0" Grid.Column="2" />
-    </Grid>
-   
+    <ScrollView Orientation="Vertical">
+        <Grid x:Name="albumGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="130"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="userId" Grid.Row="0" Grid.Column="0" />
+            <Label Text="id" Grid.Row="0" Grid.Column="1"/>
+            <Label Text="title" Grid.Row="0" Grid.Column="2" />
+        </Grid>
+    </ScrollView>
 </ContentPage>
