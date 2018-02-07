@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChartProject.Chart"
+              xmlns:local="clr-namespace:ChartProject;assembly=ChartProject"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms">
+
+    <chart:SfChart>
+        <chart:SfChart.BindingContext>
+            <local:ViewModel/>
+        </chart:SfChart.BindingContext>
+
+        <chart:SfChart.PrimaryAxis>
+
+            <chart:CategoryAxis>
+
+                <chart:CategoryAxis.Title>
+
+                    <chart:ChartAxisTitle Text="Employee Names"></chart:ChartAxisTitle>
+
+                </chart:CategoryAxis.Title>
+
+            </chart:CategoryAxis>
+
+        </chart:SfChart.PrimaryAxis>
+
+        <chart:SfChart.SecondaryAxis>
+
+            <chart:NumericalAxis>
+
+                <chart:NumericalAxis.Title>
+
+                    <chart:ChartAxisTitle Text="Salaries"></chart:ChartAxisTitle>
+
+                </chart:NumericalAxis.Title>
+
+            </chart:NumericalAxis>
+
+        </chart:SfChart.SecondaryAxis>
+
+        <chart:SfChart.Series>
+
+            <chart:ColumnSeries ItemsSource="{Binding Data}" XBindingPath="ename" YBindingPath="salary">
+                <chart:ColumnSeries.DataMarker>
+                    <chart:ChartDataMarker/>
+                </chart:ColumnSeries.DataMarker>
+            </chart:ColumnSeries>
+
+        </chart:SfChart.Series>
+
+    </chart:SfChart>
+</ContentPage>
