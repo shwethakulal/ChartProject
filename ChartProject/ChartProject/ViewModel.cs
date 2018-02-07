@@ -13,7 +13,12 @@ namespace ChartProject
             Data = new List<Employee>()
             {
                 new Employee{ename="shwetha",salary=2500.00 },
-                new Employee{ename="meena",salary=1500.00 }
+                new Employee{ename="meena",salary=1500.00 },
+                new Employee{ename="harshi",salary=500.00 },
+                new Employee{ename="pooja",salary=6500.00 },
+                 new Employee{ename="achu",salary=3500.00 },
+                  new Employee{ename="kempa",salary=1500.00 },
+                   new Employee{ename="damu",salary=11500.00 }
             };
         }
     }

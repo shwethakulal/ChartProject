@@ -40,11 +40,13 @@
 
         <chart:SfChart.Series>
 
-            <chart:ColumnSeries ItemsSource="{Binding Data}" XBindingPath="ename" YBindingPath="salary">
-                <chart:ColumnSeries.DataMarker>
-                    <chart:ChartDataMarker/>
-                </chart:ColumnSeries.DataMarker>
-            </chart:ColumnSeries>
+            <chart:ColumnSeries ItemsSource="{Binding Data}" XBindingPath="ename" YBindingPath="salary"/>
+
+
+
+            <chart:LineSeries ItemsSource ="{Binding Data}" XBindingPath="ename" YBindingPath="salary"/>
+
+
 
         </chart:SfChart.Series>
 
