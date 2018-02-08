@@ -6,17 +6,23 @@ namespace ChartProject
 {
     public class Employee
     {
+        public string empno { get; set; }
         public string ename { get; set; }
-        public double salary { get; set; }
+        public string designation { get; set; }
+        public long salary { get; set; }
 
-        public Employee(string ename, double salary)
-        {
-            this.ename = ename;
-            this.salary = salary;
-        }
+       
 
         public Employee()
         {
+        }
+
+        public Employee(string empno, string ename, string designation, long salary)
+        {
+            this.empno = empno;
+            this.ename = ename;
+            this.designation = designation;
+            this.salary = salary;
         }
     }
 }

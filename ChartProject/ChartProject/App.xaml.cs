@@ -13,9 +13,9 @@ namespace ChartProject
         public App ()
 		{
 			InitializeComponent();
-
-            MainPage = new NavigationPage(new ChartProject.Chart());
          
+            MainPage = new NavigationPage(new ChartProject.Chart());
+
         }
 
         public static ItemDatabase Database

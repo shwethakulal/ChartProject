@@ -5,10 +5,7 @@
               xmlns:local="clr-namespace:ChartProject;assembly=ChartProject"
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms">
 
-    <chart:SfChart>
-        <chart:SfChart.BindingContext>
-            <local:ViewModel/>
-        </chart:SfChart.BindingContext>
+    <chart:SfChart x:Name="chart">
 
         <chart:SfChart.PrimaryAxis>
 
@@ -39,15 +36,8 @@
         </chart:SfChart.SecondaryAxis>
 
         <chart:SfChart.Series>
-
-            <chart:ColumnSeries ItemsSource="{Binding Data}" XBindingPath="ename" YBindingPath="salary"/>
-
-
-
-            <chart:LineSeries ItemsSource ="{Binding Data}" XBindingPath="ename" YBindingPath="salary"/>
-
-
-
+            <chart:ColumnSeries  x:Name="columnSeries"  ItemsSource="{Binding employeeData}" XBindingPath="ename" YBindingPath="salary"/>
+            <chart:LineSeries x:Name="lineSeries" ItemsSource ="{Binding employeeData}" XBindingPath="ename" YBindingPath="salary"/>
         </chart:SfChart.Series>
 
     </chart:SfChart>
