@@ -10,5 +10,9 @@ namespace ChartProject
     {
         [Get("/employees/")]
         Task<List<Employee>> GetAllEmployees();
+
+        [Get("/pbdispatchcoal/")]
+        Task<CoalBauxiteModel> GetAllMines();
     }
+
 }
