@@ -21,22 +21,65 @@ namespace ChartProject
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            var webApi = RestService.For<IWebAPI>("http://1.1.1.16:8090/");
-            CoalBauxiteModel allMines = await webApi.GetAllMines();                       
+            var webApi = RestService.For<IWebAPI>("http://1.1.1.21:8090/");
+            CoalBauxiteModel allCoalMines = await webApi.GetAllCoalMines();
+            CoalBauxiteModel allBauxiteMines = await webApi.GetAllBauxiteMines();
+            CoalBauxiteModel dispatchQtyCoal = await webApi.GetDespatchQtyCoalMines();
+            CoalBauxiteModel dispatchQtyBauxite = await webApi.GetDespatchQtyBauxiteMines();
 
-               Label nameLable = new Label { Text = allMines.name };
-               minesGrid.Children.Add(nameLable, 0, 1);
+            //For Coal Grid
+            Label nameCoalLable = new Label { Text = allCoalMines.name };
+            coalGrid.Children.Add(nameCoalLable, 0, 1);
 
-                Label dailyLable = new Label { Text = allMines.daily.ToString() };
-                minesGrid.Children.Add(dailyLable,1,1);
+            Label dailyCoalLable = new Label { Text = allCoalMines.daily.ToString() };
+            coalGrid.Children.Add(dailyCoalLable, 1,1);
                 
-                Label mtdLable = new Label { Text = allMines.mtd.ToString() };
-                minesGrid.Children.Add(mtdLable,2,1);              
+            Label mtdCoalLable = new Label { Text = allCoalMines.mtd.ToString() };
+            coalGrid.Children.Add(mtdCoalLable, 2,1);              
                
-                Label ytdLable = new Label { Text = allMines.ytd.ToString() };
-                minesGrid.Children.Add(ytdLable,3,1);
-                
-            }
+            Label ytdCoalLable = new Label { Text = allCoalMines.ytd.ToString() };
+            coalGrid.Children.Add(ytdCoalLable, 3,1);
+
+            //For dispatchQty coal values
+            Label nameCoalDispatchLable = new Label { Text = dispatchQtyCoal.name };
+            coalGrid.Children.Add(nameCoalDispatchLable, 0, 2);
+
+            Label dailyCoalDispatchLable = new Label { Text = dispatchQtyCoal.daily.ToString() };
+            coalGrid.Children.Add(dailyCoalDispatchLable, 1, 2);
+
+            Label mtdCoalDispatchLable = new Label { Text = dispatchQtyCoal.mtd.ToString() };
+            coalGrid.Children.Add(mtdCoalDispatchLable, 2, 2);
+
+            Label ytdCoalDispatchLable = new Label { Text = dispatchQtyCoal.ytd.ToString() };
+            coalGrid.Children.Add(ytdCoalDispatchLable, 3, 2);
+
+            //For Bauxite Grid
+            Label nameBauxiteLable = new Label { Text = allBauxiteMines.name };
+            bauxiteGrid.Children.Add(nameBauxiteLable, 0, 1);
+
+            Label dailyBauxiteLable = new Label { Text = allBauxiteMines.daily.ToString() };
+            bauxiteGrid.Children.Add(dailyBauxiteLable, 1, 1);
+
+            Label mtdBauxiteLable = new Label { Text = allBauxiteMines.mtd.ToString() };
+            bauxiteGrid.Children.Add(mtdBauxiteLable, 2, 1);
+
+            Label ytdBauxiteLable = new Label { Text = allBauxiteMines.ytd.ToString() };
+            bauxiteGrid.Children.Add(ytdBauxiteLable, 3, 1);
+
+            //For dispatchQty bauxite values
+            Label nameBauxiteDispatchLable = new Label { Text = dispatchQtyBauxite.name };
+            bauxiteGrid.Children.Add(nameBauxiteDispatchLable, 0, 2);
+
+            Label dailyBauxiteDispatchLable = new Label { Text = dispatchQtyBauxite.daily.ToString() };
+            bauxiteGrid.Children.Add(dailyBauxiteDispatchLable, 1, 2);
+
+            Label mtdBauxiteDispatchLable = new Label { Text = dispatchQtyBauxite.mtd.ToString() };
+            bauxiteGrid.Children.Add(mtdBauxiteDispatchLable, 2, 2);
+
+            Label ytdBauxiteDispatchLable = new Label { Text = dispatchQtyBauxite.ytd.ToString() };
+            bauxiteGrid.Children.Add(ytdBauxiteDispatchLable, 3, 2);
+
+        }
 
         }
     }

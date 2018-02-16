@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ChartProject.MinesCoalBauxite">
-    <Grid x:Name="minesGrid">
+    <StackLayout>
+        <Label Text="COAL" HorizontalTextAlignment="Center" FontFamily="TimesNewRoman" FontSize="Medium" BackgroundColor="Blue" TextColor="White"/>
+        <Grid x:Name="coalGrid" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="85"/>
             <ColumnDefinition Width="85"/>
@@ -21,4 +23,25 @@
         <Label Text="MTD" Grid.Row="0" Grid.Column="2" />
         <Label Text="YTD" Grid.Row="0" Grid.Column="3" />
     </Grid>
+        <Label Text="BAUXITE" HorizontalTextAlignment="Center"  FontFamily="TimesNewRoman" FontSize="Medium" BackgroundColor="Blue" TextColor="White"/>
+        <Grid x:Name="bauxiteGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="85"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Label Text="" Grid.Row="0" Grid.Column="0" />
+        <Label Text="Daily" Grid.Row="0" Grid.Column="1" />
+        <Label Text="MTD" Grid.Row="0" Grid.Column="2" />
+        <Label Text="YTD" Grid.Row="0" Grid.Column="3" />
+    </Grid>
+    </StackLayout>
 </ContentPage>

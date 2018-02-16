@@ -12,7 +12,17 @@ namespace ChartProject
         Task<List<Employee>> GetAllEmployees();
 
         [Get("/pbdispatchcoal/")]
-        Task<CoalBauxiteModel> GetAllMines();
+        Task<CoalBauxiteModel> GetAllCoalMines();
+
+        [Get("/pbdispatchbauxite/")]
+        Task<CoalBauxiteModel> GetAllBauxiteMines();
+
+        [Get("/minesbauxitecoaldata/coal")]
+        Task<CoalBauxiteModel> GetDespatchQtyCoalMines();
+
+        [Get("/minesbauxitecoaldata/bauxite")]
+        Task<CoalBauxiteModel> GetDespatchQtyBauxiteMines();
+
     }
 
 }
