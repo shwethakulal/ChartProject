@@ -20,9 +20,13 @@ namespace ChartProject
         [Get("/minesbauxitecoaldata/coal")]
         Task<CoalBauxiteModel> GetDespatchQtyCoalMines();
 
+        [Get("/minesbauxitecoaldata/coal/currentdate")]
+        Task<CoalBauxiteModel> GetCurrentDateMines([AliasAs("year")] int year, [AliasAs("month")] int month, [AliasAs("day")] int day);
+
+
         [Get("/minesbauxitecoaldata/bauxite")]
         Task<CoalBauxiteModel> GetDespatchQtyBauxiteMines();
-
+        
     }
 
 }

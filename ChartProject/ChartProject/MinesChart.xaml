@@ -5,14 +5,41 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms">
     <StackLayout>
-    <chart:SfChart x:Name="mineschart">
-
-        
-        <!--<chart:SfChart.Series>
-            <chart:ColumnSeries  x:Name="columnSeries"  ItemsSource="{Binding employeeData}" XBindingPath="ename" YBindingPath="salary"/>
-            <chart:LineSeries x:Name="lineSeries" ItemsSource ="{Binding employeeData}" XBindingPath="ename" YBindingPath="salary"/>
-        </chart:SfChart.Series>-->
-
-    </chart:SfChart>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Current Date: " FontSize="Medium"/>
+            <DatePicker x:Name="currentDatePicker" DateSelected="datepicker_DateSelected" VerticalOptions="StartAndExpand" Date="{x:Static sys:DateTime.Now}">
+                <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                <DatePicker.MinimumDate>
+                    <sys:DateTime x:FactoryMethod="Parse">
+                        <x:Arguments>
+                            <x:String>Jan 1 2000</x:String>
+                        </x:Arguments>
+                    </sys:DateTime>
+                </DatePicker.MinimumDate>
+                <DatePicker.MaximumDate>
+                    <sys:DateTime x:FactoryMethod="Parse">
+                        <x:Arguments>
+                            <x:String>Dec 31 2050</x:String>
+                        </x:Arguments>
+                    </sys:DateTime>
+                </DatePicker.MaximumDate>
+            </DatePicker>
+        </StackLayout>
+        <chart:SfChart x:Name="mineschart" VerticalOptions="FillAndExpand">
+            <chart:SfChart.PrimaryAxis >
+                <chart:DateTimeAxis/>
+            </chart:SfChart.PrimaryAxis>
+            <chart:SfChart.SecondaryAxis>
+                <chart:NumericalAxis>
+                    <chart:NumericalAxis.Title>
+                        <chart:ChartAxisTitle Text="mines"></chart:ChartAxisTitle>
+                    </chart:NumericalAxis.Title>
+                </chart:NumericalAxis>
+            </chart:SfChart.SecondaryAxis>
+            <chart:SfChart.Series>
+                <chart:ColumnSeries  x:Name="columnSeries"  ItemsSource="{Binding CoalData}" XBindingPath="name" YBindingPath="daily"/>
+                <chart:LineSeries x:Name="lineSeries" ItemsSource ="{Binding CoalData}" XBindingPath="name" YBindingPath="daily"/>
+            </chart:SfChart.Series>
+        </chart:SfChart>
     </StackLayout>
 </ContentPage>
