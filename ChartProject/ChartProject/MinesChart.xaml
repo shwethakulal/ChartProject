@@ -25,20 +25,31 @@
                 </DatePicker.MaximumDate>
             </DatePicker>
         </StackLayout>
-        <chart:SfChart x:Name="mineschart" VerticalOptions="FillAndExpand">
-            <chart:SfChart.PrimaryAxis >
-                <chart:DateTimeAxis/>
-            </chart:SfChart.PrimaryAxis>
+        
+        <chart:SfChart x:Name="minescoalchart" VerticalOptions="FillAndExpand">
+            <chart:SfChart.Title>
+                <chart:ChartTitle Text="Coal Chart"/>
+            </chart:SfChart.Title>
             <chart:SfChart.SecondaryAxis>
                 <chart:NumericalAxis>
-                    <chart:NumericalAxis.Title>
-                        <chart:ChartAxisTitle Text="mines"></chart:ChartAxisTitle>
-                    </chart:NumericalAxis.Title>
                 </chart:NumericalAxis>
             </chart:SfChart.SecondaryAxis>
             <chart:SfChart.Series>
-                <chart:ColumnSeries  x:Name="columnSeries"  ItemsSource="{Binding CoalData}" XBindingPath="name" YBindingPath="daily"/>
-                <chart:LineSeries x:Name="lineSeries" ItemsSource ="{Binding CoalData}" XBindingPath="name" YBindingPath="daily"/>
+                <chart:ColumnSeries  x:Name="columnSeriesofcoal"  ItemsSource="{Binding CoalData}" XBindingPath="date" YBindingPath="dailyDespatch"/>
+                <chart:LineSeries x:Name="lineSeriesofcoal" ItemsSource ="{Binding CoalData}" XBindingPath="date" YBindingPath="dailyDespatch"/>
+            </chart:SfChart.Series>
+        </chart:SfChart>
+        <chart:SfChart x:Name="minesbauxitechart" VerticalOptions="FillAndExpand">
+            <chart:SfChart.Title>
+                <chart:ChartTitle Text="Bauxite Chart"/>
+            </chart:SfChart.Title>
+            <chart:SfChart.SecondaryAxis>
+                <chart:NumericalAxis>
+                </chart:NumericalAxis>
+            </chart:SfChart.SecondaryAxis>
+            <chart:SfChart.Series>
+                <chart:ColumnSeries  x:Name="columnSeriesofbauxite"  ItemsSource="{Binding BauxiteData}" XBindingPath="date" YBindingPath="dailyDespatch"/>
+                <chart:LineSeries x:Name="lineSeriesofbauxite" ItemsSource ="{Binding BauxiteData}" XBindingPath="date" YBindingPath="dailyDespatch"/>
             </chart:SfChart.Series>
         </chart:SfChart>
     </StackLayout>

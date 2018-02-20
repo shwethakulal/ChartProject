@@ -15,22 +15,32 @@ namespace ChartProject
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MinesChart : ContentPage
     {
-        public ObservableCollection<CoalBauxiteModel> CoalData = new ObservableCollection<CoalBauxiteModel>();
+        public ObservableCollection<CoalDateWiseModel> CoalData = new ObservableCollection<CoalDateWiseModel>();
+        public ObservableCollection<CoalDateWiseModel> BauxiteData = new ObservableCollection<CoalDateWiseModel>();
         public MinesChart()
         {
             InitializeComponent();
+            minescoalchart.PrimaryAxis = new DateTimeAxis()
+            {
+                IntervalType = DateTimeIntervalType.Days,
+                Interval = 1,
+                LabelRotationAngle=300,
+                //Minimum = new DateTime(2018, 1, 18),
+                //Maximum = new DateTime(2018, 1, 3)
 
-            //mineschart.PrimaryAxis = new DateTimeAxis()
-            //{
-            //    IntervalType = DateTimeIntervalType.Days,
-            //    Interval = 1,
-            //    Minimum = new DateTime(2018, 1, 18),
-            //    Maximum = new DateTime(2018, 1, 14)
+            };
+            minesbauxitechart.PrimaryAxis = new DateTimeAxis()
+            {
+                IntervalType = DateTimeIntervalType.Days,
+                Interval = 1,
+                LabelRotationAngle = 300,
+                //Minimum = new DateTime(2018, 1, 18),
+                //Maximum = new DateTime(2018, 1, 3)
 
-            //};
-            columnSeries.ItemsSource = CoalData;
+            };
 
         }
+
         private async void datepicker_DateSelected(object sender, DateChangedEventArgs e)
         {
             DateTime currentDate = e.NewDate;
@@ -38,11 +48,23 @@ namespace ChartProject
             int month = currentDate.Month;
             int year = currentDate.Year;
             var webApi = RestService.For<IWebAPI>("http://1.1.1.19:8090/");
-            CoalBauxiteModel CoalDateMines = await webApi.GetCurrentDateMines(year, month, day);
+            List<CoalDateWiseModel> coaldatewise = await webApi.GetCoalDateMines(year, month, day);
+            List<CoalDateWiseModel> bauxitedatewise = await webApi.GetBauxiteDateMines(year, month, day);
             CoalData.Clear();
-            CoalData.Add(CoalDateMines);
-            columnSeries.ItemsSource = CoalData;
+            foreach (CoalDateWiseModel coaldatewisedata in coaldatewise) {
+                CoalData.Add(coaldatewisedata);
+            }
+            columnSeriesofcoal.ItemsSource = CoalData;
+            lineSeriesofcoal.ItemsSource = CoalData;
+            BauxiteData.Clear();
+            foreach (CoalDateWiseModel bauxitedatewisedata in bauxitedatewise)
+            {
+                BauxiteData.Add(bauxitedatewisedata);
+            }
+            columnSeriesofbauxite.ItemsSource = BauxiteData;
+            lineSeriesofbauxite.ItemsSource = BauxiteData;
         }
+
 
         //protected override async void OnAppearing()
         //{
