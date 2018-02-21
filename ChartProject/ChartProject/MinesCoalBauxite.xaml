@@ -1,47 +1,106 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ChartProject.MinesCoalBauxite">
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="ChartProject.MinesCoalBauxite"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms">
+
+
     <StackLayout>
-        <Label Text="COAL" HorizontalTextAlignment="Center" FontFamily="TimesNewRoman" FontSize="Medium" BackgroundColor="Blue" TextColor="White"/>
-        <Grid x:Name="coalGrid" >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="85"/>
-            <ColumnDefinition Width="85"/>
-            <ColumnDefinition Width="85"/>
-            <ColumnDefinition Width="85"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-        </Grid.RowDefinitions>
-        <Label Text="" Grid.Row="0" Grid.Column="0" />
-        <Label Text="Daily" Grid.Row="0" Grid.Column="1" />
-        <Label Text="MTD" Grid.Row="0" Grid.Column="2" />
-        <Label Text="YTD" Grid.Row="0" Grid.Column="3" />
-    </Grid>
-        <Label Text="BAUXITE" HorizontalTextAlignment="Center"  FontFamily="TimesNewRoman" FontSize="Medium" BackgroundColor="Blue" TextColor="White"/>
-        <Grid x:Name="bauxiteGrid">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="85"/>
-            <ColumnDefinition Width="85"/>
-            <ColumnDefinition Width="85"/>
-            <ColumnDefinition Width="85"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-        </Grid.RowDefinitions>
-        <Label Text="" Grid.Row="0" Grid.Column="0" />
-        <Label Text="Daily" Grid.Row="0" Grid.Column="1" />
-        <Label Text="MTD" Grid.Row="0" Grid.Column="2" />
-        <Label Text="YTD" Grid.Row="0" Grid.Column="3" />
-    </Grid>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Current Date: " FontSize="Medium"/>
+            <DatePicker x:Name="currentDatePicker" DateSelected="datepicker_DateSelected" VerticalOptions="StartAndExpand" Date="{x:Static sys:DateTime.Now}">
+                <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                <DatePicker.MinimumDate>
+                    <sys:DateTime x:FactoryMethod="Parse">
+                        <x:Arguments>
+                            <x:String>Jan 1 2000</x:String>
+                        </x:Arguments>
+                    </sys:DateTime>
+                </DatePicker.MinimumDate>
+                <DatePicker.MaximumDate>
+                    <sys:DateTime x:FactoryMethod="Parse">
+                        <x:Arguments>
+                            <x:String>Dec 31 2050</x:String>
+                        </x:Arguments>
+                    </sys:DateTime>
+                </DatePicker.MaximumDate>
+            </DatePicker>
+        </StackLayout>
+
+      
+            <ScrollView Orientation="Vertical">
+                <Label Text="COAL" HorizontalTextAlignment="Center" FontFamily="TimesNewRoman" FontSize="Medium" BackgroundColor="Blue" TextColor="White"/>
+                <Grid x:Name="coalGrid" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="85"/>
+                        <ColumnDefinition Width="85"/>
+                        <ColumnDefinition Width="85"/>
+                        <ColumnDefinition Width="85"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="" Grid.Row="0" Grid.Column="0" />
+                    <Label Text="Daily" Grid.Row="0" Grid.Column="1" />
+                    <Label Text="MTD" Grid.Row="0" Grid.Column="2" />
+                    <Label Text="YTD" Grid.Row="0" Grid.Column="3" />
+                </Grid>
+
+                <chart:SfChart x:Name="minescoalchart" VerticalOptions="FillAndExpand">
+                    <chart:SfChart.Title>
+                        <chart:ChartTitle Text="Coal Chart"/>
+                    </chart:SfChart.Title>
+                    <chart:SfChart.SecondaryAxis>
+                        <chart:NumericalAxis>
+                        </chart:NumericalAxis>
+                    </chart:SfChart.SecondaryAxis>
+                    <chart:SfChart.Series>
+                        <chart:ColumnSeries  x:Name="columnSeriesofcoal"  ItemsSource="{Binding CoalData}" XBindingPath="date" YBindingPath="dailyDespatch"/>
+                        <chart:LineSeries x:Name="lineSeriesofcoal" ItemsSource ="{Binding CoalData}" XBindingPath="date" YBindingPath="dailyDespatch"/>
+                    </chart:SfChart.Series>
+                </chart:SfChart>
+
+                <Label Text="BAUXITE" HorizontalTextAlignment="Center"  FontFamily="TimesNewRoman" FontSize="Medium" BackgroundColor="Blue" TextColor="White"/>
+                <Grid x:Name="bauxiteGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="85"/>
+                        <ColumnDefinition Width="85"/>
+                        <ColumnDefinition Width="85"/>
+                        <ColumnDefinition Width="85"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="" Grid.Row="0" Grid.Column="0" />
+                    <Label Text="Daily" Grid.Row="0" Grid.Column="1" />
+                    <Label Text="MTD" Grid.Row="0" Grid.Column="2" />
+                    <Label Text="YTD" Grid.Row="0" Grid.Column="3" />
+                </Grid>
+
+                <chart:SfChart x:Name="minesbauxitechart" VerticalOptions="FillAndExpand">
+                    <chart:SfChart.Title>
+                        <chart:ChartTitle Text="Bauxite Chart"/>
+                    </chart:SfChart.Title>
+                    <chart:SfChart.SecondaryAxis>
+                        <chart:NumericalAxis>
+                        </chart:NumericalAxis>
+                    </chart:SfChart.SecondaryAxis>
+                    <chart:SfChart.Series>
+                        <chart:ColumnSeries  x:Name="columnSeriesofbauxite"  ItemsSource="{Binding BauxiteData}" XBindingPath="date" YBindingPath="dailyDespatch"/>
+                        <chart:LineSeries x:Name="lineSeriesofbauxite" ItemsSource ="{Binding BauxiteData}" XBindingPath="date" YBindingPath="dailyDespatch"/>
+                    </chart:SfChart.Series>
+                </chart:SfChart>
+            </ScrollView>
+
+     
     </StackLayout>
 </ContentPage>

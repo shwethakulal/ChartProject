@@ -14,7 +14,7 @@ namespace ChartProject
 		{
 			InitializeComponent();
          
-            MainPage = new NavigationPage(new ChartProject.MinesCoalBauxite());
+            MainPage = new NavigationPage(new ChartProject.MinesChart());
 
         }
 

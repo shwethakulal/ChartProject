@@ -4,6 +4,8 @@
              x:Class="ChartProject.MinesChart"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms">
+
+
     <StackLayout>
         <StackLayout Orientation="Horizontal">
             <Label Text="Current Date: " FontSize="Medium"/>
@@ -25,7 +27,27 @@
                 </DatePicker.MaximumDate>
             </DatePicker>
         </StackLayout>
-        
+
+        <Label Text="COAL" HorizontalTextAlignment="Center" FontFamily="TimesNewRoman" FontSize="Medium" TextColor="Black"/>
+        <Grid x:Name="coalGrid" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="85"/>
+                <ColumnDefinition Width="85"/>
+                <ColumnDefinition Width="85"/>
+                <ColumnDefinition Width="85"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Label Text="" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" BackgroundColor="DeepSkyBlue" TextColor="White" />
+            <Label Text="Daily" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="1" BackgroundColor="DeepSkyBlue" TextColor="White" />
+            <Label Text="MTD" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="2" BackgroundColor="DeepSkyBlue" TextColor="White" />
+            <Label Text="YTD" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="3" BackgroundColor="DeepSkyBlue" TextColor="White" />
+        </Grid>
         <chart:SfChart x:Name="minescoalchart" VerticalOptions="FillAndExpand">
             <chart:SfChart.Title>
                 <chart:ChartTitle Text="Coal Chart"/>
@@ -36,10 +58,30 @@
             </chart:SfChart.SecondaryAxis>
             <chart:SfChart.Series>
                 <chart:ColumnSeries  x:Name="columnSeriesofcoal"  ItemsSource="{Binding CoalData}" XBindingPath="date" YBindingPath="dailyDespatch"/>
-                <chart:LineSeries x:Name="lineSeriesofcoal" ItemsSource ="{Binding CoalData}" XBindingPath="date" YBindingPath="dailyDespatch"/>
+                <chart:LineSeries x:Name="lineSeriesofcoal" ItemsSource ="{Binding CoalLineData}" XBindingPath="date" YBindingPath="dailyDespatch"/>
             </chart:SfChart.Series>
         </chart:SfChart>
-        <chart:SfChart x:Name="minesbauxitechart" VerticalOptions="FillAndExpand">
+        <!--<Label Text="BAUXITE" HorizontalTextAlignment="Center"  FontFamily="TimesNewRoman" FontSize="Medium" BackgroundColor="Blue" TextColor="White"/>
+            <Grid x:Name="bauxiteGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="85"/>
+                    <ColumnDefinition Width="85"/>
+                    <ColumnDefinition Width="85"/>
+                    <ColumnDefinition Width="85"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Label Text="" Grid.Row="0" Grid.Column="0" />
+                <Label Text="Daily" Grid.Row="0" Grid.Column="1" />
+                <Label Text="MTD" Grid.Row="0" Grid.Column="2" />
+                <Label Text="YTD" Grid.Row="0" Grid.Column="3" />
+            </Grid>
+            <chart:SfChart x:Name="minesbauxitechart" VerticalOptions="FillAndExpand">
             <chart:SfChart.Title>
                 <chart:ChartTitle Text="Bauxite Chart"/>
             </chart:SfChart.Title>
@@ -51,6 +93,8 @@
                 <chart:ColumnSeries  x:Name="columnSeriesofbauxite"  ItemsSource="{Binding BauxiteData}" XBindingPath="date" YBindingPath="dailyDespatch"/>
                 <chart:LineSeries x:Name="lineSeriesofbauxite" ItemsSource ="{Binding BauxiteData}" XBindingPath="date" YBindingPath="dailyDespatch"/>
             </chart:SfChart.Series>
-        </chart:SfChart>
+        </chart:SfChart>-->
+
     </StackLayout>
+
 </ContentPage>
