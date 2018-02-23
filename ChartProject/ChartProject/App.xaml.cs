@@ -7,14 +7,25 @@ using Xamarin.Forms;
 
 namespace ChartProject
 {
-	public partial class App : Application
-	{
+    public partial class App : Application
+    {
         static ItemDatabase database;
-        public App ()
-		{
-			InitializeComponent();
-         
-            MainPage = new NavigationPage(new ChartProject.MinesChart());
+        public App()
+        {
+            InitializeComponent();
+
+            // MainPage = new NavigationPage(new ChartProject.CoalTabbedPage());
+            MainPage = new TabbedPage
+            {
+                Children =
+                {
+                    new MinesChart(),
+                    new BauxiteMinePage()
+
+                }
+            };
+
+
 
         }
 
@@ -29,19 +40,19 @@ namespace ChartProject
                 return database;
             }
         }
-        protected override void OnStart ()
-		{
-          
-		}
+        protected override void OnStart()
+        {
 
-		protected override void OnSleep ()
-		{
-			// Handle when your app sleeps
-		}
+        }
 
-		protected override void OnResume ()
-		{
-			// Handle when your app resumes
-		}
-	}
+        protected override void OnSleep()
+        {
+            // Handle when your app sleeps
+        }
+
+        protected override void OnResume()
+        {
+            // Handle when your app resumes
+        }
+    }
 }

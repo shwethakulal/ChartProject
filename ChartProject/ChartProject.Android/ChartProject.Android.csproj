@@ -96,7 +96,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\green_up_arrow.jpg" />
+    <AndroidResource Include="Resources\drawable\yellow_up_arrow.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\red_down_arrow.jpg" />
@@ -105,7 +105,10 @@
     <AndroidResource Include="Resources\drawable\yellow_down_arrow.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\yellow_up_arrow.jpg" />
+    <AndroidResource Include="Resources\drawable\green_up_arrow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\flower.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

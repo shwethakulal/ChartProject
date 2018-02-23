@@ -8,6 +8,7 @@
     <PackageReference Include="Refit" Version="4.2.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.4.118" />
     <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="15.4.0.20" />
+    <PackageReference Include="Xam.Plugins.Forms.DeviceOrientation" Version="1.0.1" />
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
   </ItemGroup>
 
@@ -46,6 +47,9 @@
     <EmbeddedResource Update="AlbumDataPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Update="BauxiteMinePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Chart.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
