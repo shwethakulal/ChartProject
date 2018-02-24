@@ -21,7 +21,7 @@ namespace ChartProject.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-           // DeviceOrientationImplementation.Init();
+            DeviceOrientationImplementation.Init();
             LoadApplication(new App());
         }
        

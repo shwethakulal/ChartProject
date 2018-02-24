@@ -6,9 +6,10 @@
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
              Title="Coal">
 
-
-    <StackLayout>
-        <StackLayout Orientation="Horizontal">
+    <StackLayout x:Name="outerStack" Orientation="Vertical" Spacing="10" Padding="5">
+        <StackLayout>
+  
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="5">
             <Label Text="Data Upto:" FontSize="Medium"/>
             <DatePicker x:Name="currentDatePicker" DateSelected="datepicker_DateSelected" VerticalOptions="StartAndExpand" Date="{x:Static sys:DateTime.Now}">
                 <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
@@ -28,26 +29,34 @@
                 </DatePicker.MaximumDate>
             </DatePicker>
         </StackLayout>
-        <Label Text="COAL" HorizontalTextAlignment="Center" FontFamily="TimesNewRoman" FontSize="Medium" TextColor="Black"/>
-        <Grid x:Name="coalGrid" Padding="5,0,0,0" ColumnSpacing="3" RowSpacing="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="85"/>
-                <ColumnDefinition Width="85"/>
-                <ColumnDefinition Width="85"/>
-                <ColumnDefinition Width="85"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-            </Grid.RowDefinitions>
-            <Label Text="" HorizontalTextAlignment="Center"  Grid.Row="0" Grid.Column="0" BackgroundColor="DeepSkyBlue" TextColor="White" />
-            <Label Text="Daily" HorizontalTextAlignment="Center"  Grid.Row="0" Grid.Column="1" BackgroundColor="DeepSkyBlue" TextColor="White" />
-            <Label Text="MTD" HorizontalTextAlignment="Center"  Grid.Row="0" Grid.Column="2" BackgroundColor="DeepSkyBlue" TextColor="White" />
-            <Label Text="YTD" HorizontalTextAlignment="Center"  Grid.Row="0" Grid.Column="3" BackgroundColor="DeepSkyBlue" TextColor="White" />
-        </Grid>
+      
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="5" BackgroundColor="AliceBlue">
+
+                <Label Text="COAL" HorizontalTextAlignment="Center" FontFamily="TimesNewRoman" FontSize="Medium" TextColor="Black"/>
+            <ScrollView>
+                <Grid x:Name="coalGrid" Padding="5,0,0,0" ColumnSpacing="3" RowSpacing="3" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="85"/>
+                        <ColumnDefinition Width="85"/>
+                        <ColumnDefinition Width="85"/>
+                        <ColumnDefinition Width="85"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="" HorizontalTextAlignment="Center"  Grid.Row="0" Grid.Column="0" BackgroundColor="DeepSkyBlue" TextColor="White" />
+                    <Label Text="Daily" HorizontalTextAlignment="Center"  Grid.Row="0" Grid.Column="1" BackgroundColor="DeepSkyBlue" TextColor="White" />
+                    <Label Text="MTD" HorizontalTextAlignment="Center"  Grid.Row="0" Grid.Column="2" BackgroundColor="DeepSkyBlue" TextColor="White" />
+                    <Label Text="YTD" HorizontalTextAlignment="Center"  Grid.Row="0" Grid.Column="3" BackgroundColor="DeepSkyBlue" TextColor="White" />
+                </Grid>
+        </ScrollView>
+    </StackLayout>
+        </StackLayout>
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
         <chart:SfChart x:Name="minescoalchart" VerticalOptions="FillAndExpand">
             <chart:SfChart.Title>
                 <chart:ChartTitle Text="Bauxite Last 15 days Despatch Qty"/>
@@ -62,5 +71,6 @@
             </chart:SfChart.Series>
         </chart:SfChart>
 
+        </StackLayout>
     </StackLayout>
 </ContentPage>
