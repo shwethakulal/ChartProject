@@ -18,6 +18,8 @@ namespace ChartProject
         public ObservableCollection<CoalDateWiseModel> BauxiteLineData = new ObservableCollection<CoalDateWiseModel>();
         public ObservableCollection<CoalDateWiseModel> BauxiteData = new ObservableCollection<CoalDateWiseModel>();
         double percentageachieved;
+        private double width = 0;
+        private double height = 0;
         public BauxiteMinePage()
         {
             InitializeComponent();
@@ -30,6 +32,23 @@ namespace ChartProject
                 //Maximum = new DateTime(2018, 1, 3)
 
             };
+        }
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
+            if (width != this.width || height != this.height)
+            {
+                this.width = width;
+                this.height = height;
+                if (width > height)
+                {
+                    outerStack.Orientation = StackOrientation.Horizontal;
+                }
+                else
+                {
+                    outerStack.Orientation = StackOrientation.Vertical;
+                }
+            }
         }
         private async void datepicker_DateSelected(object sender, DateChangedEventArgs e)
         {
