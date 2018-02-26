@@ -9,8 +9,8 @@
     <StackLayout x:Name="outerStack" Orientation="Vertical" Spacing="10" Padding="5">
         <StackLayout>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="5">
-                <Label Text="Data Upto:" FontSize="Medium"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="5">
+                <Label Text="Data Upto:" VerticalOptions="Center"/>
                 <DatePicker x:Name="currentDatePicker" DateSelected="datepicker_DateSelected" VerticalOptions="StartAndExpand" Date="{x:Static sys:DateTime.Now}">
                     <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
                     <DatePicker.MinimumDate>

@@ -27,7 +27,7 @@ namespace ChartProject
             {
                 IntervalType = DateTimeIntervalType.Days,
                 Interval = 1,
-                LabelRotationAngle = 300,
+                LabelRotationAngle = 300
                 // Minimum = new DateTime(2018, 1, 18),
                 //Maximum = new DateTime(2018, 1, 3)
                 //AutoScrollingDelta = 3,
@@ -61,7 +61,7 @@ namespace ChartProject
             int year = currentDate.Year;
             //double dailydespatch = 0;
 
-            var webApi = RestService.For<IWebAPI>("http://192.168.1.102:8090/");
+            var webApi = RestService.For<IWebAPI>("http://192.168.43.25:8090/");
             List<CoalDateWiseModel> coaldatewise = await webApi.GetCoalDateMines(year, month, day);
 
             CoalData.Clear();
@@ -83,7 +83,7 @@ namespace ChartProject
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            var webApi = RestService.For<IWebAPI>("http://192.168.1.102:8090/");
+            var webApi = RestService.For<IWebAPI>("http://192.168.43.25:8090/");
             CoalBauxiteModel allCoalMines = await webApi.GetAllCoalMines();
 
             CoalBauxiteModel dispatchQtyCoal = await webApi.GetDespatchQtyCoalMines();

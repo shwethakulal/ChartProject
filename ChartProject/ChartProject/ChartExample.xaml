@@ -1,16 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ChartProject.MinesChart"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
-             Title="Coal">
-
+             x:Class="ChartProject.ChartExample">
     <StackLayout x:Name="outerStack" Orientation="Vertical" Spacing="10" Padding="5">
-        <StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="5">
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="5">
-                <Label Text="Data Upto:" VerticalOptions="Center"></Label>
+
+
+            <Label Text="Data Upto:" VerticalOptions="Center"></Label>
+            <DatePicker x:Name="currentDatePicker" DateSelected="datepicker_DateSelected" VerticalOptions="StartAndExpand" Date="{x:Static sys:DateTime.Now}">
+                <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                <DatePicker.MinimumDate>
+                    <sys:DateTime x:FactoryMethod="Parse">
+                        <x:Arguments>
+                            <x:String>Jan 1 2000</x:String>
+                        </x:Arguments>
+                    </sys:DateTime>
+                </DatePicker.MinimumDate>
+                <DatePicker.MaximumDate>
+                    <sys:DateTime x:FactoryMethod="Parse">
+                        <x:Arguments>
+                            <x:String>Dec 31 2050</x:String>
+                        </x:Arguments>
+                    </sys:DateTime>
+                </DatePicker.MaximumDate>
+            </DatePicker>
+
+            <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="5">
+                <Label Text="Data Upto:" FontSize="Medium"/>
                 <DatePicker x:Name="currentDatePicker" DateSelected="datepicker_DateSelected" VerticalOptions="StartAndExpand" Date="{x:Static sys:DateTime.Now}">
                     <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
                     <DatePicker.MinimumDate>
@@ -28,34 +47,12 @@
                         </sys:DateTime>
                     </DatePicker.MaximumDate>
                 </DatePicker>
-            </StackLayout>
-            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="5" BackgroundColor="AliceBlue">
+            </StackLayout>-->
 
-                <Label Text="COAL" HorizontalTextAlignment="Center" FontFamily="TimesNewRoman" FontSize="Medium" TextColor="Black"/>
-                <ScrollView>
-                    <Grid x:Name="coalGrid" Padding="5,0,0,0" ColumnSpacing="3" RowSpacing="3" >
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="85"/>
-                            <ColumnDefinition Width="85"/>
-                            <ColumnDefinition Width="85"/>
-                            <ColumnDefinition Width="85"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="25"/>
-                            <RowDefinition Height="25"/>
-                            <RowDefinition Height="25"/>
-                            <RowDefinition Height="25"/>
-                            <RowDefinition Height="25"/>
-                        </Grid.RowDefinitions>
-                        <Label Text="" HorizontalTextAlignment="Center"  Grid.Row="0" Grid.Column="0" BackgroundColor="DeepSkyBlue" TextColor="White" />
-                        <Label Text="Daily" HorizontalTextAlignment="Center"  Grid.Row="0" Grid.Column="1" BackgroundColor="DeepSkyBlue" TextColor="White" />
-                        <Label Text="MTD" HorizontalTextAlignment="Center"  Grid.Row="0" Grid.Column="2" BackgroundColor="DeepSkyBlue" TextColor="White" />
-                        <Label Text="YTD" HorizontalTextAlignment="Center"  Grid.Row="0" Grid.Column="3" BackgroundColor="DeepSkyBlue" TextColor="White" />
-                    </Grid>
-                </ScrollView>
-            </StackLayout>
         </StackLayout>
+
         <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+
             <chart:SfChart x:Name="minescoalchart" VerticalOptions="FillAndExpand">
                 <chart:SfChart.Title>
                     <chart:ChartTitle Text="Coal Last 15 days Despatch Qty"/>
@@ -71,5 +68,6 @@
             </chart:SfChart>
 
         </StackLayout>
+
     </StackLayout>
 </ContentPage>

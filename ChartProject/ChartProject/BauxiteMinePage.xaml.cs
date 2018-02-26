@@ -58,7 +58,7 @@ namespace ChartProject
             int year = currentDate.Year;
           
 
-            var webApi = RestService.For<IWebAPI>("http://192.168.1.102:8090/");
+            var webApi = RestService.For<IWebAPI>("http://192.168.43.25:8090/");
             List<CoalDateWiseModel> bauxitedatewise = await webApi.GetBauxiteDateMines(year, month, day);
             BauxiteData.Clear();
             BauxiteLineData.Clear();
@@ -79,7 +79,7 @@ namespace ChartProject
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            var webApi = RestService.For<IWebAPI>("http://192.168.1.102:8090/");
+            var webApi = RestService.For<IWebAPI>("http://192.168.43.25:8090/");
 
             CoalBauxiteModel allBauxiteMines = await webApi.GetAllBauxiteMines();
             CoalBauxiteModel dispatchQtyBauxite = await webApi.GetDespatchQtyBauxiteMines();

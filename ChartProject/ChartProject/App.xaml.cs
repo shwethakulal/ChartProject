@@ -14,7 +14,7 @@ namespace ChartProject
         {
             InitializeComponent();
 
-            // MainPage = new NavigationPage(new ChartProject.CoalTabbedPage());
+            //MainPage = new NavigationPage(new ChartProject.ChartExample());
             MainPage = new TabbedPage
             {
                 Children =
@@ -24,6 +24,7 @@ namespace ChartProject
 
                 }
             };
+
 
 
 
